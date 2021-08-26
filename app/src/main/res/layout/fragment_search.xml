@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_description"
+            style="@style/H1.light"
+            android:layout_marginBottom="@dimen/large_top_margin"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayoutTopic"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayoutTopic"
+            style="@style/InputLayout"
+            app:boxCornerRadiusBottomEnd="@dimen/edit_text_corner"
+            app:boxCornerRadiusBottomStart="@dimen/edit_text_corner"
+            app:boxCornerRadiusTopEnd="@dimen/edit_text_corner"
+            app:boxCornerRadiusTopStart="@dimen/edit_text_corner"
+            app:boxStrokeColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:boxStrokeWidth="@dimen/edit_text_stroke_width">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTopic"
+                style="@style/SearchTextField"
+                android:hint="@string/enter_topic" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSearch"
+            android:layout_marginTop="@dimen/medium_top_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayoutTopic"
+            android:layout_width="wrap_content"
+            android:text="@string/search"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/button_text_size"
+            android:layout_height="wrap_content" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

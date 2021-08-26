@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="15dp"
+        android:layout_margin="5dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        app:cardBackgroundColor="@color/light_gray">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="@dimen/item_container_padding"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tvRepositoryName"
+                tools:text="Repo Name"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/ItemH1" />
+
+            <TextView
+                android:id="@+id/tvRepositoryScore"
+                tools:text="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRepositoryName"
+                app:drawableStartCompat="@drawable/ic_baseline_star_rate_light_gray"
+                style="@style/ItemH2" />
+
+
+            <ImageView
+                android:id="@+id/imgAvatar"
+                android:src="@drawable/ic_baseline_person_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRepositoryScore"
+                style="@style/FooterImageStyle" />
+
+            <TextView
+                android:id="@+id/tvAuthorFullName"
+                app:layout_constraintStart_toEndOf="@id/imgAvatar"
+                app:layout_constraintTop_toTopOf="@id/imgAvatar"
+                app:layout_constraintBottom_toBottomOf="@id/imgAvatar"
+                tools:text="Author Name"
+                style="@style/FooterTextViewStyle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

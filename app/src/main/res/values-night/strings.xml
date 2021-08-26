@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="search">Search</string>
+    <string name="total_result">%1$s results</string>
+    <string name="enter_topic">Enter Topic</string>
+    <string name="app_description">Search In Github Repository</string>
+</resources>
