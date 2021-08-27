@@ -9,6 +9,7 @@ import dagger.hilt.android.components.ApplicationComponent
 import dousthagh.software.git.data.repository.SearchRepository
 import dousthagh.software.git.data.service.SearchInRepositoryService
 import dousthagh.software.git.data.source.SearchInRepositorySource
+import dousthagh.software.git.ui.fragments.search_result.SearchResultAdapter
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -55,4 +56,7 @@ object AppModule {
         dataSource: SearchInRepositorySource,
     ) = SearchRepository(dataSource)
 
+    @Singleton
+    @Provides
+    fun provideSearchResultAdapter() = SearchResultAdapter()
 }

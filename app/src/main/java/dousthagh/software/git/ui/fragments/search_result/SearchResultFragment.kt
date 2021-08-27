@@ -13,12 +13,13 @@ import dousthagh.software.git.data.model.search.request.SearchRequestModel
 import dousthagh.software.git.databinding.FragmentSearchResultBinding
 import dousthagh.software.git.ui.fragments.search_result.adapter.IRepositoryItemListener
 import dousthagh.software.git.util.Resource
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SearchResultFragment : Fragment(), IRepositoryItemListener {
     private lateinit var binding: FragmentSearchResultBinding
     private val viewModel by viewModels<SearchResultViewModel>()
-    private lateinit var adapter: SearchRepositoryAdapter
+    @Inject lateinit var adapter: SearchResultAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +38,7 @@ class SearchResultFragment : Fragment(), IRepositoryItemListener {
     }
 
     private fun setupRecyclerView() {
-        adapter = SearchRepositoryAdapter(this)
+        adapter.setItemListener(this)
         binding.rvSearchResult.adapter = adapter
     }
 

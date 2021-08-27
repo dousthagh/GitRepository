@@ -13,31 +13,34 @@ import dousthagh.software.git.data.model.search.result.RepositoryItem
 import dousthagh.software.git.databinding.ItemRepositoryResultBinding
 import dousthagh.software.git.ui.fragments.search_result.adapter.IRepositoryItemListener
 
-class SearchRepositoryAdapter(private val listener: IRepositoryItemListener) :
-    RecyclerView.Adapter<RepositoryViewHolder>() {
+class SearchResultAdapter() :
+    RecyclerView.Adapter<MyViewHolder>() {
 
 
     private val items = ArrayList<RepositoryItem>()
-
+    private lateinit var _listener: IRepositoryItemListener
     fun setItems(items: ArrayList<RepositoryItem>) {
         this.items.clear()
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
+    fun setItemListener(listener: IRepositoryItemListener){
+        _listener = listener
+    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val binding: ItemRepositoryResultBinding =
             ItemRepositoryResultBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RepositoryViewHolder(binding, listener, parent.context)
+        return MyViewHolder(binding, _listener, parent.context)
     }
 
     override fun getItemCount(): Int = items.size
 
-    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) =
         holder.bind(items[position])
 }
 
-class RepositoryViewHolder(
+class MyViewHolder(
     private val itemBinding: ItemRepositoryResultBinding,
     private val listener: IRepositoryItemListener,
     private val context: Context
@@ -50,7 +53,6 @@ class RepositoryViewHolder(
         itemBinding.root.setOnClickListener(this)
     }
 
-    @SuppressLint("SetTextI18n")
     fun bind(item: RepositoryItem) {
         this.item = item
         if (layoutPosition % 2 == 0) {
